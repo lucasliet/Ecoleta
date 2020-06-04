@@ -51,7 +51,7 @@ class PointsController {
     
         
         const point = {
-            image : 'placeholder.png',
+            image : 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
             name,
             email,
             whatsapp,
@@ -63,22 +63,26 @@ class PointsController {
         
         const trx = await knex.transaction(); //só executará as querys se ambas forem bem sucedidas
         
-        const insertedIds = await trx('points').insert(point); 
-        //knex inser retorna id de tudo que foi inserido, como nesse caso tenho certeza que sempre será
-        //inserido só 1, passei a primeira posição do array pra outra variavel
-        const point_id = insertedIds[0];
+            const insertedIds = await trx('points').insert(point); 
+            //knex inser retorna id de tudo que foi inserido, como nesse caso tenho certeza que sempre será
+            //inserido só 1, passei a primeira posição do array pra outra variavel
+            const point_id = insertedIds[0];
 
-        const pointsItems = items_ids.map((item_id : number) => {
-            return {
-                point_id,
-                item_id
-            }
-        });
-    
-        await trx('points_items').insert(pointsItems);
+            const pointsItems = items_ids.map((item_id : number) => {
+                return {
+                    point_id,
+                    item_id
+                }
+            });
+        
+            await trx('points_items').insert(pointsItems);
+            
+        await trx.commit(); //se ambas as querys tiverem ok, executa no banco
+
         return response.json({
             id: point_id,
-            ...point
+            ...point,
+            items_ids
         });
     }
 }
