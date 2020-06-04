@@ -16,4 +16,20 @@ routes.get('/items', async (request, response) => {
     return response.json(serializedItems);
 });
 
+routes.post('/points', async (request, response) => {
+    const {
+        name, email, whatsapp,
+        longitude, latitude,
+        city, uf
+    } = request.body;
+
+    await knex('points').insert({
+        image : 'placeholder.png',
+        name, email, whatsapp,
+        longitude, latitude,
+        city, uf
+    });
+    return response.json({success:true,name,email,whatsapp,longitude,latitude,city,uf});
+});
+
 export default routes;
