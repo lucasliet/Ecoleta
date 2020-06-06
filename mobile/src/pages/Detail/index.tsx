@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { View, TouchableOpacity, Image, Text } from 'react-native';
+import { View, TouchableOpacity, Image, Text, SafeAreaView } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import Styles from './styles';
@@ -10,7 +10,7 @@ export default function Detail(){
     const navigation = useNavigation();
     const styles = Styles();
     return (
-        <>
+        <SafeAreaView style={{flex: 1}}>
             <View>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Icon name="arrow-left" size={20} color="#34cb79"/>
@@ -30,8 +30,16 @@ export default function Detail(){
                   onPress={() => {}}
                 >
                     <FontAwesome name="whatsapp" size={20} color="#fff" />
+                    <Text style={styles.buttonText}>Whatsapp</Text>
+                </RectButton>
+                <RectButton 
+                  style={styles.button}
+                  onPress={() => {}}
+                >
+                    <Icon name="mail" size={20} color="#fff" />
+                    <Text style={styles.buttonText}>E-mail</Text>
                 </RectButton>
             </View>
-        </>
+        </SafeAreaView>
     );
 };
