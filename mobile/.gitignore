@@ -14,5 +14,6 @@ web-report/
 .DS_Store
 
 # yarn npm cache files
+yarn-error.log
 yarn.lock
 package-lock.json
