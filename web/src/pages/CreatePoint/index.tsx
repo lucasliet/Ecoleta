@@ -16,6 +16,7 @@ interface IBGEResponse { sigla : string, nome : string };
 
 const CreatePoint = () => {
     const [items, setItems] = useState<Item[]>([]);
+    const [selectedFile, setSelectedFile] = useState<File>();
     
     const [ufs, setUfs] = useState<string[]>([]);
     const [cities, setCities] = useState<string[]>([]);
@@ -107,16 +108,19 @@ const CreatePoint = () => {
         const city : string = selectedCity;
         const [latitude, longitude] = selectedPosition;
         const items_ids : number[] = selectedItems;
-        const data = {
-            name,
-            email,
-            whatsapp,
-            uf,
-            city,
-            latitude,
-            longitude,
-            items_ids
-        };
+        const data = new FormData(); 
+        data.append('name' , name);
+        data.append('email' , email);
+        data.append('whatsapp' , whatsapp);
+        data.append('uf' , uf);
+        data.append('city' , city);
+        data.append('latitude' , String(latitude));
+        data.append('longitude' , String(longitude));
+        data.append('items_ids' , items_ids.join(','));
+        
+        if(selectedFile){
+            data.append('image', selectedFile)
+        }
 
         api.post('points', data);
         alert('Ponto de coleta registrado');
@@ -129,7 +133,7 @@ const CreatePoint = () => {
             <header>
                 <img src={logo} alt="Ecoleta"/>
 
-                <Link to="/">
+                <Link to="/Ecoleta">
                     <FiArrowLeft />
                     Voltar para home
                 </Link>
@@ -141,7 +145,7 @@ const CreatePoint = () => {
                     pontos de coleta.
                 </h1>
 
-                <Dropzone/>
+                <Dropzone upload={setSelectedFile}/>
 
                 <fieldset>
                     <legend>
