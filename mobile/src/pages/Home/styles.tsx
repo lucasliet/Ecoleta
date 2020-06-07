@@ -30,7 +30,18 @@ const Styles = () => StyleSheet.create({
 
   footer: {},
 
-  select: {},
+  select: {
+    borderColor: '#6C6C80',
+    backgroundColor: '#fff',
+    color: '#6C6C80',
+    marginVertical: 4,
+    fontSize: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderWidth: 2,
+    borderRadius: 12,
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
 
   input: {
     height: 60,

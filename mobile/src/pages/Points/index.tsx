@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, ScrollView, Alert} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { SvgUri } from 'react-native-svg';
 import * as Location from 'expo-location';
 import Map, { Marker } from 'react-native-maps';
@@ -25,6 +25,11 @@ interface Point{
     }[];
 }
 
+interface UfCity {
+    uf: string;
+    city: string;
+}
+
 export default function Points(){
     const [items, setItems] = useState<Item[]>([]);
     const [selectedItems, setSelectedItems] = useState<number[]>([]);
@@ -32,6 +37,8 @@ export default function Points(){
     const [points, setPoints] = useState<Point[]>([]);
 
     const navigation = useNavigation();
+    const route = useRoute();
+    const routeParams = route.params as UfCity;
     const styles = Styles();
 
     useEffect(() => {
@@ -57,9 +64,9 @@ export default function Points(){
     useEffect(() => {
         api.get('points', {
             params: {
-                city: 'Florianópolis',
-                uf: 'SC',
-                items: [3,4] 
+                city: routeParams.city,
+                uf: routeParams.uf,
+                items: selectedItems
             }
         }).then( response => {
             setPoints(response.data);
