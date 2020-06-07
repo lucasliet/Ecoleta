@@ -43,13 +43,6 @@ export default function Detail(){
         loadPoint();
     }, []);
 
-    function handleComposeMail(){
-        MailComposer.composeAsync({
-            subject: 'Interesse na coleta de resíduos',
-            recipients: [data.point.email],
-        });
-    }
-
     if(!data.point){
         return null;
     }
@@ -76,14 +69,20 @@ export default function Detail(){
             <View style={styles.footer}>
                 <RectButton 
                   style={styles.button}
-                  onPress={() => Linking.openURL(`whatsapp://send?phone=+55${data.point.whatsapp}&text=Tenho interesse sobre coleta de resíduos`)}
+                  onPress={() => Linking.openURL(`whatsapp://send?phone=+55${data.point.whatsapp}
+                                                 &text=Tenho interesse sobre coleta de resíduos`)}
                 >
                     <FontAwesome name="whatsapp" size={20} color="#fff" />
                     <Text style={styles.buttonText}>Whatsapp</Text>
                 </RectButton>
                 <RectButton 
                   style={styles.button}
-                  onPress={handleComposeMail}
+                  onPress={() => (
+                    MailComposer.composeAsync({
+                        subject: 'Interesse na coleta de resíduos',
+                        recipients: [data.point.email],
+                    })
+                  )}
                 >
                     <Icon name="mail" size={20} color="#fff" />
                     <Text style={styles.buttonText}>E-mail</Text>
