@@ -36,7 +36,7 @@ const Styles = () => StyleSheet.create({
     color: '#6C6C80',
     marginVertical: 4,
     fontSize: 16,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     paddingVertical: 8,
     borderWidth: 2,
     borderRadius: 12,

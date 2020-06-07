@@ -105,7 +105,7 @@ const CreatePoint = () => {
         const uf : string = selectedUf;
         const city : string = selectedCity;
         const [latitude, longitude] = selectedPosition;
-        const idItems : number[] = selectedItems;
+        const items_ids : number[] = selectedItems;
         const data = {
             name,
             email,
@@ -114,7 +114,7 @@ const CreatePoint = () => {
             city,
             latitude,
             longitude,
-            idItems
+            items_ids
         };
 
         api.post('points', data);

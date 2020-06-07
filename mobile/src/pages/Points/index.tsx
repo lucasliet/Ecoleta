@@ -71,7 +71,7 @@ export default function Points(){
         }).then( response => {
             setPoints(response.data);
         });
-    }, []);
+    }, [selectedItems]);
 
     function handleSelectedItem(idSelected : number){
         const alreadySelectedIndex : number = selectedItems.findIndex(idItem => idItem === idSelected);
@@ -107,20 +107,20 @@ export default function Points(){
                         }}
                       >
                           {points.map(point => (
-                              <Marker
-                                key={String(point.id)} 
-                                style={styles.mapMarker}
-                                onPress={() => navigation.navigate('Detail', {point_id: point.id})}
-                                coordinate={{
-                                latitude: point.latitude,
-                                longitude: point.longitude
-                              }}
-                            >
-                                <View style={styles.mapMarkerContainer}>
-                                    <Image style={styles.mapMarkerImage} source={{ uri: point.image }}/>
-                                    <Text style={styles.mapMarkerTitle}>{point.name}</Text>
-                                </View>
-                            </Marker>
+                                <Marker
+                                    key={String(point.id)} 
+                                    style={styles.mapMarker}
+                                    onPress={() => navigation.navigate('Detail', {point_id: point.id})}
+                                    coordinate={{
+                                        latitude: point.latitude,
+                                        longitude: point.longitude
+                                    }}
+                                >
+                                    <View style={styles.mapMarkerContainer}>
+                                        <Image style={styles.mapMarkerImage} source={{ uri: point.image }}/>
+                                        <Text style={styles.mapMarkerTitle}>{point.name}</Text>
+                                    </View>
+                                </Marker>
                           ))}
                       </Map>
                     )}

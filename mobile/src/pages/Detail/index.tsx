@@ -36,10 +36,12 @@ export default function Detail(){
     const routeParams = route.params as Params ; //forçar tipagem com "as"
 
     useEffect(() => {
-        api.get(`points/${routeParams.point_id}`).then( response => {
+        async function loadPoint(){
+            const response = await api.get(`points/${routeParams.point_id}`);
             setData(response.data);
-        });
-    });
+        }
+        loadPoint();
+    }, []);
 
     function handleComposeMail(){
         MailComposer.composeAsync({
@@ -48,6 +50,9 @@ export default function Detail(){
         });
     }
 
+    if(!data.point){
+        return null;
+    }
 
     return (
         <SafeAreaView style={{flex: 1, paddingVertical:25}}>
@@ -56,7 +61,8 @@ export default function Detail(){
                     <Icon name="arrow-left" size={20} color="#34cb79"/>
                 </TouchableOpacity>
 
-                <Image style={styles.pointImage} source={{uri: data.point.image}}/>
+                <Image style={styles.pointImage} source={{ uri: data.point.image }}/>
+
                 <Text style={styles.pointName}>{data.point.name}</Text>
                 <Text style={styles.pointItems}>
                     {data.items.map(item => item.title).join(', ')}
@@ -70,7 +76,7 @@ export default function Detail(){
             <View style={styles.footer}>
                 <RectButton 
                   style={styles.button}
-                  onPress={() => Linking.openURL(`whatsapp://send?phone=${data.point.whatsapp}&text=Tenho interesse sobre coleta de resíduos`)}
+                  onPress={() => Linking.openURL(`whatsapp://send?phone=+55${data.point.whatsapp}&text=Tenho interesse sobre coleta de resíduos`)}
                 >
                     <FontAwesome name="whatsapp" size={20} color="#fff" />
                     <Text style={styles.buttonText}>Whatsapp</Text>
