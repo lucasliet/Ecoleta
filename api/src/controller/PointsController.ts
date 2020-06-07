@@ -2,6 +2,8 @@ import {Request, Response} from 'express';
 import knex from '../database/connection';
 
 class PointsController {
+    
+
     async index(request : Request, response : Response){
         const { city, uf, items } = request.query;
 
@@ -17,7 +19,14 @@ class PointsController {
             .distinct() //como passo 2 parametros em whereIn, evita resultados duplicads
             .select('points.*');
 
-        return response.json(points);
+        const serializedPoints = points.map(point => {
+            return {
+            ...point,
+            image_url: `http://cafezinho.sytes.net:3333/uploads/${point.image}`
+            }
+        });
+
+        return response.json(serializedPoints);
     }
 
     async show(request : Request, response : Response){
@@ -28,13 +37,17 @@ class PointsController {
         if (!point){
             return response.status(400).json({message : 'Point not found'});
         }
+        const serializedPoint = {
+            ...point,
+            image_url: `http://cafezinho.sytes.net:3333/uploads/${point.image}`
+        };
 
         const items = await knex('items')
             .join('points_items', 'items.id', '=', 'points_items.item_id')
             .where('points_items.point_id', id)
             .select('items.title');
 
-        return response.json({point, items});
+        return response.json({serializedPoint, items});
     }
 
     async create(request : Request, response : Response){
@@ -68,12 +81,15 @@ class PointsController {
             //inserido só 1, passei a primeira posição do array pra outra variavel
             const point_id = insertedIds[0];
 
-            const pointsItems = items_ids.map((item_id : number) => {
-                return {
-                    point_id,
-                    item_id
-                }
-            });
+            const pointsItems = items_ids
+                .split(',') //quebra a string onde houver "," e separa num array
+                .map((item_id : string) => Number(item_id.trim())) //remove espaços vazios e converte pra numero num novo array
+                .map((item_id : number) => {
+                    return {
+                        point_id,
+                        item_id
+                    }
+                });
         
             await trx('points_items').insert(pointsItems);
             
