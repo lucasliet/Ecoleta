@@ -1,6 +1,9 @@
 # sqlite database
 *.sqlite*
 
+# uploads
+/uploads/*
+
 # Logs
 logs
 *.log
