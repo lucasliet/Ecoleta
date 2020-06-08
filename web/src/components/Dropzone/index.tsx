@@ -28,13 +28,13 @@ const Dropzone : React.FC<Props> = ({upload}) => {
         ? <img src={selectedFileUrl}/>
         : (
           isDragActive
-            ? <p>
+            ? <p style={{padding:20}}>
                 <FiUpload/>
                 Solte a foto do estabelecimento aqui ...
               </p>
-            : <p>
+            : <p style={{padding:20}}>
                 <FiUpload/>
-                Arraste aqui a foto do estabelecimento
+                Arraste aqui, ou clique para enviar a foto do estabelecimento
               </p>
         )
       }

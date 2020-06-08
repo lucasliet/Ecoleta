@@ -157,12 +157,12 @@ const CreatePoint = () => {
                         <input type="text" name="name" id="name" onChange={handleInputChange} />
                     </div>
 
-                    <div className="field-group">
-                        <div className="field">
+                    <div className="field-group row">
+                        <div className="field col-12 col-md-6">
                             <label htmlFor="email">E-mail: </label>
                             <input type="email" name="email" id="email" onChange={handleInputChange} />
                         </div>
-                        <div className="field">
+                        <div className="field col-12 col-md-6">
                             <label htmlFor="whatsapp">Whatsapp: </label>
                             <input type="text" name="whatsapp" id="whatsapp" onChange={handleInputChange} />
                         </div>
@@ -183,8 +183,8 @@ const CreatePoint = () => {
                         <Marker position={selectedPosition} />
                     </Map>
 
-                    <div className="field-group">
-                        <div className="field">
+                    <div className="field-group row">
+                        <div className="field col-12 col-md-6">
                             <label htmlFor="uf">Estado: </label>
                             <select 
                               name="uf"
@@ -198,7 +198,7 @@ const CreatePoint = () => {
                                 ))}
                             </select>
                         </div>
-                        <div className="field">
+                        <div className="field col-12 col-md-6">
                             <label htmlFor="city">Cidade: </label>
                             <select 
                               name="city"
