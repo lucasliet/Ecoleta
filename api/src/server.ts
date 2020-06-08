@@ -20,4 +20,6 @@ app.use(
 
 app.use(errors());
 
-app.listen(3333);
+const port: number = process.env.PORT || 3333;
+
+app.listen(port);
