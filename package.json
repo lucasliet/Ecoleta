@@ -7,7 +7,7 @@
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
-    "postinstall": "yarn knex:migrate && yarn knex:seed & yarn dev"
+    "postinstall": "npm run knex:migrate && npm run knex:seed & npm run dev"
   },
   "keywords": [],
   "author": "",
