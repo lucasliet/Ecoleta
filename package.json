@@ -10,7 +10,7 @@
     "test": "echo noTests",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
-    "postinstall": "npm run knex:migrate && npm run knex:seed & npm run build"
+    "postinstall": "npm run knex:migrate && npm run knex:seed"
   },
   "keywords": [],
   "author": "",
