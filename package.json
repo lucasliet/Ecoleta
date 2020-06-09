@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
-    "build": "tsc",
+    "start": "node ./dist/server.js",
+    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "test": "echo noTests",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
     "postinstall": "npm run knex:migrate && npm run knex:seed & npm run build"
@@ -28,6 +29,7 @@
     "@types/express": "^4.17.6",
     "@types/hapi__joi": "^17.1.2",
     "@types/multer": "^1.4.3",
+    "sucrase": "^3.15.0",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.3"
