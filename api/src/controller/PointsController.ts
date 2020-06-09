@@ -2,8 +2,6 @@ import {Request, Response} from 'express';
 import knex from '../database/connection';
 
 class PointsController {
-    
-
     async index(request : Request, response : Response){
         const { city, uf, items } = request.query;
 
@@ -22,7 +20,7 @@ class PointsController {
         const serializedPoints = points.map(point => {
             return {
             ...point,
-            image_url: `http://cafezinho.sytes.net:3333/uploads/${point.image}`
+            image_url: `https://localhost:3333/uploads/${point.image}`
             }
         });
 
@@ -39,7 +37,7 @@ class PointsController {
         }
         const serializedPoint = {
             ...point,
-            image_url: `http://cafezinho.sytes.net:3333/uploads/${point.image}`
+            image_url: `https://localhost:3333/${point.image}`
         };
 
         const items = await knex('items')
@@ -64,7 +62,7 @@ class PointsController {
     
         
         const point = {
-            image : 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
+            image: request.file.filename,
             name,
             email,
             whatsapp,
