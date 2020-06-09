@@ -13,6 +13,12 @@ const upload = multer(multerConfig);
 const pointsController = new PointsController();
 const itemsController = new ItemsController();
 
+routes.get('/', (request, response) => {
+    return response.json({
+      message: 'Ecoleta Server API: https://lucasliet.github.io/Ecoleta'
+  
+    })
+  })
 routes.get('/points/:id', pointsController.show);
 routes.get('/points', pointsController.index);
 routes.get('/items', itemsController.index);
