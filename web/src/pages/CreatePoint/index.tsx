@@ -125,7 +125,7 @@ const CreatePoint = () => {
         api.post('points', data);
         alert('Ponto de coleta registrado');
 
-        history.push('/'); //manda o usuário de volta pra home
+        history.push('/Ecoleta'); //manda o usuário de volta pra home
     }
 
     return (
