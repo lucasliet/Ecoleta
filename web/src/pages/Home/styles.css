@@ -112,5 +112,9 @@
     #page-home .content header {
       margin: 48px auto 32px;
     }
+
+    #page-home .content main a {
+      margin-bottom: 32px;
+    }
   }
 }
