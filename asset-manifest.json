@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Ecoleta/static/css/main.b1b30ff2.chunk.css",
+    "main.css": "/Ecoleta/static/css/main.c488553a.chunk.css",
     "main.js": "/Ecoleta/static/js/main.9ea95ba5.chunk.js",
     "main.js.map": "/Ecoleta/static/js/main.9ea95ba5.chunk.js.map",
     "runtime-main.js": "/Ecoleta/static/js/runtime-main.680626ff.js",
@@ -8,9 +8,9 @@
     "static/js/2.7f7322f5.chunk.js": "/Ecoleta/static/js/2.7f7322f5.chunk.js",
     "static/js/2.7f7322f5.chunk.js.map": "/Ecoleta/static/js/2.7f7322f5.chunk.js.map",
     "index.html": "/Ecoleta/index.html",
-    "precache-manifest.21017a097d3da77542631063cd5fb3ff.js": "/Ecoleta/precache-manifest.21017a097d3da77542631063cd5fb3ff.js",
+    "precache-manifest.86ba2d05186d66c900e8e4289d0387e9.js": "/Ecoleta/precache-manifest.86ba2d05186d66c900e8e4289d0387e9.js",
     "service-worker.js": "/Ecoleta/service-worker.js",
-    "static/css/main.b1b30ff2.chunk.css.map": "/Ecoleta/static/css/main.b1b30ff2.chunk.css.map",
+    "static/css/main.c488553a.chunk.css.map": "/Ecoleta/static/css/main.c488553a.chunk.css.map",
     "static/js/2.7f7322f5.chunk.js.LICENSE.txt": "/Ecoleta/static/js/2.7f7322f5.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/Ecoleta/static/media/home-background.fe2283e1.svg",
     "static/media/logo.svg": "/Ecoleta/static/media/logo.47c4581a.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.680626ff.js",
     "static/js/2.7f7322f5.chunk.js",
-    "static/css/main.b1b30ff2.chunk.css",
+    "static/css/main.c488553a.chunk.css",
     "static/js/main.9ea95ba5.chunk.js"
   ]
 }
