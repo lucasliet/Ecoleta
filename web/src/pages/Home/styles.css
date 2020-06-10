@@ -104,4 +104,13 @@
   #page-home .content main p {
     font-size: 24px;
   }
+  @media all and (max-width: 499px){
+    #page-home .content {
+      text-align: start;
+    }
+
+    #page-home .content header {
+      margin: 48px auto 32px;
+    }
+  }
 }
