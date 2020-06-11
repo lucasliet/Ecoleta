@@ -66,7 +66,7 @@ export default function Points(){
             params: {
                 city: routeParams.city,
                 uf: routeParams.uf,
-                items: selectedItems
+                items_ids: selectedItems
             }
         }).then( response => {
             setPoints(response.data);
