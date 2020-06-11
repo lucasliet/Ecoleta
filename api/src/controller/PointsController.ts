@@ -3,9 +3,9 @@ import knex from '../database/connection';
 
 class PointsController {
     async index(request : Request, response : Response){
-        const { city, uf, items } = request.query;
+        const { city, uf, items_ids } = request.query;
 
-        const parsedItems = String(items)
+        const parsedItems = String(items_ids)
             .split(',')
             .map(item => Number(item.trim()));
 
