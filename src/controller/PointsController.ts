@@ -37,7 +37,7 @@ class PointsController {
         }
         const serializedPoint = {
             ...point,
-            image_url: `https://ecoleta-points-api.herokuapp.com/${point.image}`
+            image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
         };
 
         const items = await knex('items')
