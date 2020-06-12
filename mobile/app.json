@@ -4,16 +4,15 @@
     "slug": "Ecoleta",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
-    "version": "1.0.0",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#6B7F9E"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +21,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.lucasliet.ecoleta"
+    },
+    "android": {
+      "package": "dev.lucasliet.ecoleta",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive.png",
+        "backgroundColor": "#6B7F9E"
+      }
     }
   }
 }
