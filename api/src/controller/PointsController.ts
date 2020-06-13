@@ -1,5 +1,7 @@
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 import knex from '../database/connection';
+import imgur from '../services/ImgurApi';
+import FileStream from 'fs';
 
 class PointsController {
     async index(request : Request, response : Response){
@@ -59,10 +61,22 @@ class PointsController {
             uf,
             items_ids
         } = request.body;
-    
         
+        const file_base64 = FileStream.readFileSync(request.file.path)
+            .toString('base64');
+
+        const { data: {link} } = await imgur.Image.upload(
+            file_base64,
+            { 
+                type: 'base64',
+                title: request.file.filename,
+            }
+        );
+        const uploadedImageUrl = link;
+        console.log(uploadedImageUrl)
+
         const point = {
-            image: request.file.filename,
+            image: uploadedImageUrl,
             name,
             email,
             whatsapp,
