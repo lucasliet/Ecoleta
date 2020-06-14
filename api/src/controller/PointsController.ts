@@ -62,6 +62,7 @@ class PointsController {
             items_ids
         } = request.body;
         
+        //converte o arquivo para base64 pra ser entendido pela API do imgur
         const file_base64 = FileStream.readFileSync(request.file.path)
             .toString('base64');
 
@@ -73,7 +74,6 @@ class PointsController {
             }
         );
         const uploadedImageUrl = link;
-        console.log(uploadedImageUrl)
 
         const point = {
             image: uploadedImageUrl,
