@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "334f72cd8632f0e5534ec889c4c173ac",
+    "revision": "b36865e4a7c3834a8715f95f0cae61bf",
     "url": "/Ecoleta/index.html"
   },
   {
-    "revision": "0776b00fb2ffa8a853f8",
+    "revision": "de2434b968bf6a2f8cee",
     "url": "/Ecoleta/static/css/main.0c37ec7c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Ecoleta/static/js/2.7f7322f5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0776b00fb2ffa8a853f8",
-    "url": "/Ecoleta/static/js/main.f50e60cf.chunk.js"
+    "revision": "de2434b968bf6a2f8cee",
+    "url": "/Ecoleta/static/js/main.606f621b.chunk.js"
   },
   {
     "revision": "59fe3747c8b73294707c",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Ecoleta/static/media/home-background.fe2283e1.svg"
   },
   {
-    "revision": "9a97c04bb9a3e8b8c64c131f9976f849",
-    "url": "/Ecoleta/static/media/logo.9a97c04b.svg"
+    "revision": "034eb1381e7708eaff2bc968d225bfda",
+    "url": "/Ecoleta/static/media/logo.034eb138.svg"
   }
 ]);
