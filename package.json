@@ -8,8 +8,8 @@
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "test": "echo noTests",
-    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
-    "knex:seed": "knex --knexfile knexfile.ts seed:run"
+    "knex:migrate": "knex --knexfile knexfile.js migrate:latest",
+    "knex:seed": "knex --knexfile knexfile.js seed:run"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "knex": "^0.21.1",
     "multer": "^1.4.2",
-    "sqlite3": "^4.2.0"
+    "pg": "^8.2.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
