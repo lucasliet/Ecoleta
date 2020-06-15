@@ -90,24 +90,25 @@ class PointsController {
         
             //knex inser retorna id de tudo que foi inserido, como nesse caso tenho certeza que sempre será
             //inserido só 1, passei a primeira posição do array pra outra variavel
-            const insertedIds = await trx('points').insert(point); 
-
+            const insertedIds = await trx('points').insert(point).returning('id'); 
+            const point_id = insertedIds[0];
+            console.log(`----- Point ID: ${point_id} ----- ----- InsertedIds: ${insertedIds} -----`)
             const pointsItems = items_ids
-                .split(',') //quebra a string onde houver "," e separa num array
-                .map((item_id : string) => Number(item_id.trim())) //remove espaços vazios e converte pra numero num novo array
-                .map((item_id : number) => {
-                    return {
-                        point_id: insertedIds[0],
-                        item_id
-                    }
-                });
-        
-            await trx('points_items').insert(pointsItems);
+            .split(',') //quebra a string onde houver "," e separa num array
+            .map((item_id : string) => Number(item_id.trim())) //remove espaços vazios e converte pra numero num novo array
+            .map((item_id : number) => {
+                return {
+                    item_id,
+                    point_id
+                }
+            });
+            
+            await trx('points_items').insert(pointsItems)
             
         await trx.commit(); //se ambas as querys tiverem ok, executa no banco
 
         return response.json({
-            id: insertedIds[0],
+            id: point_id,
             ...point,
             items_ids
         });
