@@ -1,6 +1,6 @@
-import Knex from 'knex';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-export async function up(knex : Knex) {
+ async function up(knex ) {
     return knex.schema.createTable('points', table => {
         table.increments('id').primary();
         table.string('image').notNullable();
@@ -12,8 +12,8 @@ export async function up(knex : Knex) {
         table.string('city').notNullable();
         table.string('uf').notNullable();
     })
-};
+} exports.up = up;;
 
-export async function down(knex : Knex) {
+ async function down(knex ) {
     return knex.schema.dropTable('points');
-};
+} exports.down = down;;

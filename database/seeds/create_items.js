@@ -1,6 +1,6 @@
-import Knex from 'knex';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-export async function seed(knex : Knex) {
+ async function seed(knex ) {
     await knex('items').insert([
         { title: 'Lâmpadas', image: 'lampadas.svg' },
         { title: 'Pilhas e Baterias', image: 'baterias.svg' },
@@ -9,4 +9,4 @@ export async function seed(knex : Knex) {
         { title: 'Resíduos Orgânicos', image: 'organicos.svg' },
         { title: 'Óleo de Cozinha', image: 'oleo.svg' },
     ]);
-};
+} exports.seed = seed;;
