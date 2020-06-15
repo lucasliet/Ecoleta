@@ -8,7 +8,7 @@
     ],
     "version": "1.3.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/ios_icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,11 +21,11 @@
       "**/*"
     ],
     "ios": {
-      "icon": "./assets/ios_icon.png",
       "supportsTablet": true,
       "bundleIdentifier": "dev.lucasliet.ecoleta"
     },
     "android": {
+      "icon": "./assets/icon.png",
       "package": "dev.lucasliet.ecoleta",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive_icon.png",
