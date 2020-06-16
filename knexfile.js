@@ -4,10 +4,10 @@ module.exports = {
     client : 'pg',
     connection : process.env.DATABASE_URL,
     migrations : {
-        directory : _path2.default.resolve(__dirname, 'dist', 'database', 'migrations'),
+        directory : _path2.default.resolve(__dirname, 'database', 'migrations'),
     },
     seeds : {
-        directory : _path2.default.resolve(__dirname, 'dist', 'database', 'seeds'),
+        directory : _path2.default.resolve(__dirname, 'database', 'seeds'),
     },
     useNullAsDefault : true,
 };
