@@ -10,7 +10,7 @@ class PointsController {
         const parsedItems = String(items_ids)
             .split(',')
             .map(item => Number(item.trim()));
-
+        console.log("parsed items "+parsedItems)
         const points = await _connection2.default.call(void 0, 'points')
             .join('points_items', 'points.id', '=', 'points_items.point_id')
             .whereIn('points_items.item_id', parsedItems) //Array é passado como "whereIn" invés de "where"
