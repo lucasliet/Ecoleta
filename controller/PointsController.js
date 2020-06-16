@@ -6,14 +6,14 @@ var _fs = require('fs'); var _fs2 = _interopRequireDefault(_fs);
 class PointsController {
     async index(request , response ){
         const { city, uf, items_ids } = request.query;
-        console.log(items_ids)
         const parsedItems = String(items_ids)
             .split(',')
             .map(item => Number(item.trim()));
-        console.log("parsed items "+parsedItems)
+        console.log("Parsed items: "+parsedItems)
+        
         const points = await _connection2.default.call(void 0, 'points')
             .join('points_items', 'points.id', '=', 'points_items.point_id')
-            .whereIn('points_items.item_id', parsedItems) //Array é passado como "whereIn" invés de "where"
+            //.whereIn('points_items.item_id', parsedItems) //Array é passado como "whereIn" invés de "where"
             .where('city', String(city))
             .where('uf', String(uf))
             .distinct() //como passo 2 parametros em whereIn, evita resultados duplicads
@@ -25,7 +25,7 @@ class PointsController {
             image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
             }
         });
-        console.log(`Points: ${serializedPoints[0].latitude}`);
+        console.log(`Points: ${serializedPoints[0]}`);
 
         return response.json(serializedPoints);
     }
