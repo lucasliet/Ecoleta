@@ -26,7 +26,7 @@ class PointsController {
             }
         });
 
-        console.log(`Points: ${serializedPoints}`);
+        console.log(`Points: ${JSON.stringify(serializedPoints)}`);
 
         return response.json(serializedPoints);
     }
