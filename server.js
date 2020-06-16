@@ -14,7 +14,7 @@ app.use(_routes2.default);
 app.use(
     '/uploads',
      _express2.default.static(
-        _path2.default.resolve(__dirname, '..', 'uploads')
+        _path2.default.resolve(__dirname, 'uploads')
     ),
 );
 
