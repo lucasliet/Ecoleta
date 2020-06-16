@@ -9,25 +9,16 @@ class PointsController {
         const parsedItems = String(items_ids)
             .split(',')
             .map(item => Number(item.trim()));
-        console.log("Parsed items: "+parsedItems)
         
         const points = await _connection2.default.call(void 0, 'points')
             .join('points_items', 'points.id', '=', 'points_items.point_id')
-            //.whereIn('points_items.item_id', parsedItems) //Array é passado como "whereIn" invés de "where"
+            .whereIn('points_items.item_id', parsedItems) //Array é passado como "whereIn" invés de "where"
             .where('city', String(city))
             .where('uf', String(uf))
             .distinct() //como passo 2 parametros em whereIn, evita resultados duplicads
             .select('points.*');
 
-        const serializedPoints = points.map(point => {
-            return {
-            ...point,
-            image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
-            }
-        });
-        console.log(`Points: ${serializedPoints[0]}`);
-
-        return response.json(serializedPoints);
+        return response.json(points);
     }
 
     async show(request , response ){
@@ -38,17 +29,13 @@ class PointsController {
         if (!point){
             return response.status(400).json({message : 'Point not found'});
         }
-        const serializedPoint = {
-            ...point,
-            image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
-        };
 
         const items = await _connection2.default.call(void 0, 'items')
             .join('points_items', 'items.id', '=', 'points_items.item_id')
             .where('points_items.point_id', id)
             .select('items.title');
 
-        return response.json({point: serializedPoint, items});
+        return response.json({point, items});
     }
 
     async create(request , response ){
