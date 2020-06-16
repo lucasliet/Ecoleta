@@ -4,7 +4,7 @@ var _crypto = require('crypto'); var _crypto2 = _interopRequireDefault(_crypto);
 
 exports. default = {
     storage: _multer2.default.diskStorage({
-        destination: _path2.default.resolve(__dirname, '..', '..', 'uploads'),
+        destination: _path2.default.resolve(__dirname, '..', 'uploads'),
         filename: (request, file, callback) => {
             const hash = _crypto2.default.randomBytes(6).toString('hex');
             const fileName = `${hash}-${file.originalname}`;
