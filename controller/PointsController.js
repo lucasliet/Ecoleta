@@ -6,7 +6,7 @@ var _fs = require('fs'); var _fs2 = _interopRequireDefault(_fs);
 class PointsController {
     async index(request , response ){
         const { city, uf, items_ids } = request.query;
-
+        console.log(items_ids)
         const parsedItems = String(items_ids)
             .split(',')
             .map(item => Number(item.trim()));
