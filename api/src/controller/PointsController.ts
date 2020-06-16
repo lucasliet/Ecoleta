@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import {Request, Response} from 'express';
 import knex from '../database/connection';
 import imgur from '../services/ImgurApi';
 import FileStream from 'fs';
@@ -22,9 +22,11 @@ class PointsController {
         const serializedPoints = points.map(point => {
             return {
             ...point,
-            image_url: `https://localhost:3333/uploads/${point.image}`
+            image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
             }
         });
+
+        console.log(`Points: ${serializedPoints}`);
 
         return response.json(serializedPoints);
     }
@@ -39,7 +41,7 @@ class PointsController {
         }
         const serializedPoint = {
             ...point,
-            image_url: `https://localhost:3333/uploads/${point.image}`
+            image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
         };
 
         const items = await knex('items')
@@ -88,22 +90,22 @@ class PointsController {
         
         const trx = await knex.transaction(); //só executará as querys se ambas forem bem sucedidas
         
-            const insertedIds = await trx('points').insert(point); 
             //knex inser retorna id de tudo que foi inserido, como nesse caso tenho certeza que sempre será
             //inserido só 1, passei a primeira posição do array pra outra variavel
+            const insertedIds = await trx('points').insert(point).returning('id'); 
             const point_id = insertedIds[0];
-
+            
             const pointsItems = items_ids
-                .split(',') //quebra a string onde houver "," e separa num array
-                .map((item_id : string) => Number(item_id.trim())) //remove espaços vazios e converte pra numero num novo array
-                .map((item_id : number) => {
-                    return {
-                        point_id,
-                        item_id
-                    }
-                });
-        
-            await trx('points_items').insert(pointsItems);
+            .split(',') //quebra a string onde houver "," e separa num array
+            .map((item_id : string) => Number(item_id.trim())) //remove espaços vazios e converte pra numero num novo array
+            .map((item_id : number) => {
+                return {
+                    item_id,
+                    point_id
+                }
+            });
+            
+            await trx('points_items').insert(pointsItems)
             
         await trx.commit(); //se ambas as querys tiverem ok, executa no banco
 
