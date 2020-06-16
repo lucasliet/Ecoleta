@@ -25,8 +25,7 @@ class PointsController {
             image_url: `https://ecoleta-points-api.herokuapp.com/uploads/${point.image}`
             }
         });
-
-        console.log(`Points: ${JSON.stringify(serializedPoints)}`);
+        console.log(`Points: ${serializedPoints[0].latitude}`);
 
         return response.json(serializedPoints);
     }
