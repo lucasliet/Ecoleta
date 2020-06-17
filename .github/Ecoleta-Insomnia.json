@@ -1,0 +1,271 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2020-06-14T04:48:18.151Z",
+  "__export_source": "insomnia.desktop.app:v2020.2.2",
+  "resources": [
+    {
+      "_id": "req_dbc01fe6fce94ff3a0228139160c2180",
+      "authentication": {},
+      "body": {},
+      "created": 1591292577878,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1591289774030.625,
+      "method": "GET",
+      "modified": 1592106406934,
+      "name": "Listar Items",
+      "parameters": [],
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/items",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "created": 1591289639654,
+      "description": "",
+      "modified": 1591289704011,
+      "name": "Ecoleta",
+      "parentId": null,
+      "scope": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_6b4147c3b67945e1aac77ff31985a3fb",
+      "authentication": {},
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_9cffc4db33c44cd1a7594ee1fd5ae3b1",
+            "name": "name",
+            "value": "Butequim"
+          },
+          {
+            "description": "",
+            "id": "pair_18c2cbec5c744f9f82d4ef43a158b290",
+            "name": "email",
+            "value": "butex@mail.com"
+          },
+          {
+            "description": "",
+            "id": "pair_6ec38ebb3322476ca1ae41fbd378e8f0",
+            "name": "whatsapp",
+            "value": "11982345671"
+          },
+          {
+            "description": "",
+            "id": "pair_30102423d416460bae112eb796258646",
+            "name": "latitude",
+            "value": "-23.6701046"
+          },
+          {
+            "description": "",
+            "id": "pair_0cc6900de21c4b818514c9afbfdd8525",
+            "name": "longitude",
+            "value": "-46.7379254"
+          },
+          {
+            "description": "",
+            "id": "pair_ef8371422e4f4c38a601f35d2d0207a7",
+            "name": "city",
+            "value": "São Paulo"
+          },
+          {
+            "description": "",
+            "id": "pair_5d44f47fee5546ed95a29b1ea22efa4c",
+            "multiline": false,
+            "name": "uf",
+            "type": "text",
+            "value": "SP"
+          },
+          {
+            "description": "",
+            "id": "pair_4b6a0413ff994b65b395620fa0a49b55",
+            "name": "items_ids",
+            "value": "1,2,3,4,5,6"
+          },
+          {
+            "description": "",
+            "id": "pair_52ea7b9178c747e5bb5643b4cee4d956",
+            "name": "image",
+            "type": "file",
+            "value": ""
+          }
+        ]
+      },
+      "created": 1591289773990,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_68e8c0a6c9284bc0800fa17ef0e43bc0",
+          "name": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1591289774029.0625,
+      "method": "POST",
+      "modified": 1592110050721,
+      "name": "Criar ponto de coleta",
+      "parameters": [],
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/points",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5a791c66a8274a64a7a376313231c879",
+      "authentication": {},
+      "body": {},
+      "created": 1591290508178,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1591289774027.5,
+      "method": "GET",
+      "modified": 1592106418641,
+      "name": "Listar ponto de coleta",
+      "parameters": [],
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/points/7",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2543d07411a04f919ae9b59bebbd78ea",
+      "authentication": {},
+      "body": {},
+      "created": 1591289729513,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1591289774015,
+      "method": "GET",
+      "modified": 1592106425254,
+      "name": "Listar pontos filtrados",
+      "parameters": [
+        {
+          "description": "",
+          "id": "pair_6c924030ecbd4f7194fecd22e708ac31",
+          "name": "city",
+          "value": "São Paulo"
+        },
+        {
+          "description": "",
+          "id": "pair_09107f44a6db48ddb74dac58f5f289d0",
+          "name": "uf",
+          "value": "SP"
+        },
+        {
+          "description": "",
+          "id": "pair_57bae1e3a2834656be93d0e4fb3e776f",
+          "name": "items",
+          "value": "1"
+        }
+      ],
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/points",
+      "_type": "request"
+    },
+    {
+      "_id": "env_c8d61f7857eb9a4c28955cd8ad670b24c3d08308",
+      "color": null,
+      "created": 1591289639718,
+      "data": {
+        "base_url": "localhost:3333"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 1591289639718,
+      "modified": 1592106340968,
+      "name": "Base Environment",
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_c8d61f7857eb9a4c28955cd8ad670b24c3d08308",
+      "cookies": [],
+      "created": 1591289639723,
+      "modified": 1591289639723,
+      "name": "Default Jar",
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_8676aeb805484d2085695074089f954a",
+      "contentType": "yaml",
+      "contents": "",
+      "created": 1591294101867,
+      "fileName": "Ecoleta",
+      "modified": 1591294101867,
+      "parentId": "wrk_2b419774bafa45279fe91ce8689301fd",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_7a628b4f57e24fa89dfc700a92c65885",
+      "color": "#56e64f",
+      "created": 1592106303976,
+      "data": {
+        "base_url": "localhost:3333"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 1592106303976,
+      "modified": 1592106330644,
+      "name": "dev",
+      "parentId": "env_c8d61f7857eb9a4c28955cd8ad670b24c3d08308",
+      "_type": "environment"
+    },
+    {
+      "_id": "env_9181d427389d4ffdb8cc5224ad6cf028",
+      "color": "#423089",
+      "created": 1592106346432,
+      "data": {
+        "base_url": "ecoleta-points-api.herokuapp.com"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 1592106346432,
+      "modified": 1592106377863,
+      "name": "Heroku",
+      "parentId": "env_c8d61f7857eb9a4c28955cd8ad670b24c3d08308",
+      "_type": "environment"
+    }
+  ]
+}
