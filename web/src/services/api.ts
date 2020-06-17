@@ -1,6 +1,8 @@
 import axios from 'axios';
 
+const url = (process.env.NODE_ENV === 'development' ? 'http://localhost:3333/' : 'https://ecoleta-points-api.herokuapp.com/')
+
 const api = axios.create({
-    baseURL: 'https://ecoleta-points-api.herokuapp.com/'
+    baseURL: url
 });
 export default api;
